@@ -1,0 +1,187 @@
+County,Marital Status,Male,Female,Total
+Galway City,Single,23617,24524,48141
+Galway City,Married (incl. same sex civil partnership),12194,12156,24350
+Galway City,Separated,685,1008,1693
+Galway City,Divorced,717,1184,1901
+Galway City,Widowed,587,1996,2583
+Galway City,Total,37800,40868,78668
+Galway,Single,48373,42748,91121
+Galway,Married (incl. same sex civil partnership),36542,36670,73212
+Galway,Separated,1751,2097,3848
+Galway,Divorced,1429,1874,3303
+Galway,Widowed,1768,6138,7906
+Galway,Total,89863,89527,179390
+Mayo,Single,34810,30616,65426
+Mayo,Married (incl. same sex civil partnership),26078,26267,52345
+Mayo,Separated,1409,1749,3158
+Mayo,Divorced,1205,1579,2784
+Mayo,Widowed,1545,5249,6794
+Mayo,Total,65047,65460,130507
+Sligo,Single,17826,16531,34357
+Sligo,Married (incl. same sex civil partnership),12466,12547,25013
+Sligo,Separated,755,958,1713
+Sligo,Divorced,595,780,1375
+Sligo,Widowed,723,2354,3077
+Sligo,Total,32365,33170,65535
+Leitrim,Single,8545,7376,15921
+Leitrim,Married (incl. same sex civil partnership),6433,6441,12874
+Leitrim,Separated,373,423,796
+Leitrim,Divorced,332,395,727
+Leitrim,Widowed,381,1345,1726
+Leitrim,Total,16064,15980,32044
+Donegal,Single,42725,38757,81482
+Donegal,Married (incl. same sex civil partnership),31445,31752,63197
+Donegal,Separated,1769,2210,3979
+Donegal,Divorced,1385,1977,3362
+Donegal,Widowed,1698,5474,7172
+Donegal,Total,79022,80170,159192
+Cavan,Single,21004,18461,39465
+Cavan,Married (incl. same sex civil partnership),15044,14966,30010
+Cavan,Separated,802,956,1758
+Cavan,Divorced,731,921,1652
+Cavan,Widowed,749,2542,3291
+Cavan,Total,38330,37846,76176
+Monaghan,Single,16965,14652,31617
+Monaghan,Married (incl. same sex civil partnership),12126,12151,24277
+Monaghan,Separated,640,783,1423
+Monaghan,Divorced,513,789,1302
+Monaghan,Widowed,622,2145,2767
+Monaghan,Total,30866,30520,61386
+Louth,Single,35809,33737,69546
+Louth,Married (incl. same sex civil partnership),23703,23740,47443
+Louth,Separated,1615,2196,3811
+Louth,Divorced,1230,1741,2971
+Louth,Widowed,1276,3837,5113
+Louth,Total,63633,65251,128884
+Fingal,Single,80627,79444,160071
+Fingal,Married (incl. same sex civil partnership),57264,56985,114249
+Fingal,Separated,2707,4189,6896
+Fingal,Divorced,2517,4178,6695
+Fingal,Widowed,2125,5984,8109
+Fingal,Total,145240,150780,296020
+Dublin City,Single,167682,166132,333814
+Dublin City,Married (incl. same sex civil partnership),86629,83955,170584
+Dublin City,Separated,6332,7357,13689
+Dublin City,Divorced,5325,6901,12226
+Dublin City,Widowed,6302,17939,24241
+Dublin City,Total,272270,282284,554554
+South Dublin,Single,77274,76098,153372
+South Dublin,Married (incl. same sex civil partnership),51750,51701,103451
+South Dublin,Separated,2548,4175,6723
+South Dublin,Divorced,2221,3641,5862
+South Dublin,Widowed,2484,6875,9359
+South Dublin,Total,136277,142490,278767
+Dún Laoghaire-Rathdown,Single,56201,57149,113350
+Dún Laoghaire-Rathdown,Married (incl. same sex civil partnership),42620,43161,85781
+Dún Laoghaire-Rathdown,Separated,1875,2746,4621
+Dún Laoghaire-Rathdown,Divorced,1684,2903,4587
+Dún Laoghaire-Rathdown,Widowed,2204,7475,9679
+Dún Laoghaire-Rathdown,Total,104584,113434,218018
+Meath,Single,52535,49372,101907
+Meath,Married (incl. same sex civil partnership),38894,38922,77816
+Meath,Separated,2146,2795,4941
+Meath,Divorced,1634,2370,4004
+Meath,Widowed,1567,4809,6376
+Meath,Total,96776,98268,195044
+Westmeath,Single,24457,22668,47125
+Westmeath,Married (incl. same sex civil partnership),16737,16752,33489
+Westmeath,Separated,1135,1396,2531
+Westmeath,Divorced,866,1148,2014
+Westmeath,Widowed,887,2724,3611
+Westmeath,Total,44082,44688,88770
+Longford,Single,11458,9947,21405
+Longford,Married (incl. same sex civil partnership),7742,7659,15401
+Longford,Separated,559,673,1232
+Longford,Divorced,392,536,928
+Longford,Widowed,436,1471,1907
+Longford,Total,20587,20286,40873
+Roscommon,Single,17211,14779,31990
+Roscommon,Married (incl. same sex civil partnership),13057,13089,26146
+Roscommon,Separated,771,866,1637
+Roscommon,Divorced,610,770,1380
+Roscommon,Widowed,728,2663,3391
+Roscommon,Total,32377,32167,64544
+Wicklow,Single,37881,36203,74084
+Wicklow,Married (incl. same sex civil partnership),27770,27730,55500
+Wicklow,Separated,1709,2166,3875
+Wicklow,Divorced,1447,2127,3574
+Wicklow,Widowed,1349,4043,5392
+Wicklow,Total,70156,72269,142425
+Wexford,Single,39838,37526,77364
+Wexford,Married (incl. same sex civil partnership),28581,28698,57279
+Wexford,Separated,2000,2504,4504
+Wexford,Divorced,1624,2210,3834
+Wexford,Widowed,1679,5062,6741
+Wexford,Total,73722,76000,149722
+Carlow,Single,15971,14405,30376
+Carlow,Married (incl. same sex civil partnership),10660,10575,21235
+Carlow,Separated,696,889,1585
+Carlow,Divorced,557,803,1360
+Carlow,Widowed,581,1795,2376
+Carlow,Total,28465,28467,56932
+Waterford,Single,31845,29220,61065
+Waterford,Married (incl. same sex civil partnership),21827,21892,43719
+Waterford,Separated,1456,1818,3274
+Waterford,Divorced,1184,1629,2813
+Waterford,Widowed,1339,3966,5305
+Waterford,Total,57651,58525,116176
+Kilkenny,Single,26835,24426,51261
+Kilkenny,Married (incl. same sex civil partnership),19682,19644,39326
+Kilkenny,Separated,1109,1335,2444
+Kilkenny,Divorced,867,1153,2020
+Kilkenny,Widowed,1040,3141,4181
+Kilkenny,Total,49533,49699,99232
+Tipperary,Single,43648,38717,82365
+Tipperary,Married (incl. same sex civil partnership),30676,30689,61365
+Tipperary,Separated,2015,2425,4440
+Tipperary,Divorced,1564,2009,3573
+Tipperary,Widowed,1765,6045,7810
+Tipperary,Total,79668,79885,159553
+Cork,Single,111906,103907,215813
+Cork,Married (incl. same sex civil partnership),83478,83717,167195
+Cork,Separated,3937,4996,8933
+Cork,Divorced,3851,5155,9006
+Cork,Widowed,3781,12483,16264
+Cork,Total,206953,210258,417211
+Cork City,Single,37732,36107,73839
+Cork City,Married (incl. same sex civil partnership),19712,19510,39222
+Cork City,Separated,1351,1759,3110
+Cork City,Divorced,1321,1714,3035
+Cork City,Widowed,1606,4845,6451
+Cork City,Total,61722,63935,125657
+Kerry,Single,38666,35296,73962
+Kerry,Married (incl. same sex civil partnership),29650,29810,59460
+Kerry,Separated,1579,2000,3579
+Kerry,Divorced,1433,1920,3353
+Kerry,Widowed,1727,5626,7353
+Kerry,Total,73055,74652,147707
+Limerick,Single,55132,49935,105067
+Limerick,Married (incl. same sex civil partnership),36356,36216,72572
+Limerick,Separated,2165,2782,4947
+Limerick,Divorced,1651,2125,3776
+Limerick,Widowed,2036,6501,8537
+Limerick,Total,97340,97559,194899
+Clare,Single,31462,29012,60474
+Clare,Married (incl. same sex civil partnership),23520,23640,47160
+Clare,Separated,1408,1743,3151
+Clare,Divorced,1133,1541,2674
+Clare,Widowed,1262,4096,5358
+Clare,Total,58785,60032,118817
+Offaly,Single,21291,19419,40710
+Offaly,Married (incl. same sex civil partnership),15108,15024,30132
+Offaly,Separated,958,1221,2179
+Offaly,Divorced,675,920,1595
+Offaly,Widowed,806,2539,3345
+Offaly,Total,38838,39123,77961
+Kildare,Single,61394,57985,119379
+Kildare,Married (incl. same sex civil partnership),43275,43093,86368
+Kildare,Separated,2285,3097,5382
+Kildare,Divorced,1790,2635,4425
+Kildare,Widowed,1802,5148,6950
+Kildare,Total,110546,111958,222504
+Laois,Single,24060,21485,45545
+Laois,Married (incl. same sex civil partnership),16095,15885,31980
+Laois,Separated,1075,1251,2326
+Laois,Divorced,826,958,1784
+Laois,Widowed,755,2307,3062
+Laois,Total,42811,41886,84697

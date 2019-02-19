@@ -1,0 +1,12 @@
+Today I do function:
+        + getArrayOfCategory(category) {request to backend, now to csv file} //category - e.g population by marital status
+                                                                    // scv parsing
+                                                                    //added localStorage cache
+        + getCurrentRenderArray(ArrayOfCategory, SubCategory, SubSubCategory) //example:  subCategory - total, male, ..
+                                                                             // subSubCategory - total, single, ..
+
+        + addHoverEffects // style and inscription (onMouseMove, onMouseOut)
+
+
+
+

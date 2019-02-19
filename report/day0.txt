@@ -1,0 +1,15 @@
+ok, we need a plan.
+
+0. initialize the project: git, idea
+1. "Good artists copy, great artists steal": do a code review of a similar project on d3
+2. in detail review of the existing code
+3. what can I take from my past projects?
+4. make a list of tasks
+    just about:
+        - d3
+        - csv parsing
+        - hover effects
+        - how to interact with the css
+        - small chart: which, where, effects
+        - ...
+

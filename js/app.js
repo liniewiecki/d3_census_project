@@ -124,7 +124,7 @@ d3.select('#nuts2').on('click', function(){
     
   
     d3.select('#GalwayCity').transition()
-    .style('fill', '#B39534' )
+    .style('fill', '#1e3db3' )
     .append;
     d3.select('#Roscommon').transition()
     .style('fill', '#B39534' );

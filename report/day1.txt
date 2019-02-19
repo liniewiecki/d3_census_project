@@ -1,0 +1,37 @@
+Today I built a general structure for the function and started to implement it a bit.
+
++ 0. initialize the project: git, idea
++ 1. "Good artists copy, great artists steal": do a code review of a similar project on d3
++ 2. in detail review of the existing code
++ 3. what can I take from my past projects: small chart?
++ 4. make a list of tasks
+    need to do functions, in order of calling:
+        - getArrayOfCategory(category) {request to backend, now to csv file} //category - e.g population by marital status
+        - getCurrentRenderArray(ArrayOfCategory, SubCategory, SubSubCategory) //example:  subCategory - total, male, ..
+                                                                             // subSubCategory - total, single, ..
+        + colorArrayBuilder //build array [{id, color},..]                                                                            // subSubCategory - total, single, ..
+        + colorMap([{id, color},..]) //
+
+    other:
+        + createColorMap - HOF (d3svg)
+        + createColorArrayBuilder - HOF ( stepColorFunction)
+        + createStepColorFunction - HOF (ArrayLevelColor )
+
+sample for csv file (population by marital status category):
+County, Marital Status,Male,Female,Total
+Galway ,Single,48373,42748,91121
+Galway ,Married (incl. same sex civil partnership),36542,36670,73212
+Galway ,Separated,1751,2097,3848
+Galway ,Divorced,1429,1874,3303
+Galway ,Widowed,1768,6138,7906
+Galway ,Total,89863,89527,179390
+Carlow ,Single,48373,42748,91121
+Carlow ,Married (incl. same sex civil partnership),36542,36670,73212
+Carlow, Separated,1751,2097,3848
+Carlow, Divorced,1429,1874,3303
+Carlow, Widowed,1768,6138,7906
+Carlow, Total,89863,89527,179390
+...
+and so for all other counties
+
+
