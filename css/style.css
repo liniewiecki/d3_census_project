@@ -14,6 +14,39 @@ body{
 #tooltip-container .title {
   margin-right: 0.2em;
 }
+
+/*extended menu*/
+.extendedMenu input {
+  display: none;
+}
+.extendedMenu li a {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.extendedMenu .inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.extendedMenu .menuInputLabel {
+  margin: 0 0.3em;
+  padding: 0.2em;
+  border: 1px solid #9c9c9c;
+  border-radius: 30%;
+
+  cursor: pointer;
+}
+
+.extendedMenu input:checked + .menuInputLabel {
+  background: #525252;
+}
+
+.extendedMenu li a.selected {
+  background: #171717 !important;
+}
+
 /* svg#Ireland {
   width: 500px;
   height:300px;

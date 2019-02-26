@@ -78,17 +78,69 @@
               <div class="sidebar">
                 <ul id="nav">
                   <li><a href="#">Dashboard</a></li>
-                  <li><a href="#">Ireland by NUTS</a>
-                    <ul id="drop">
-                      <li><a href="#" id="nuts1">NUTS 1</a></li>
-                      <li><a href="#" id="nuts2">NUTS 2</a></li>
-                      <li><a href="#" id="nuts3">NUTS 3</a></li>
-                      <li><a href="#" id="nuts4">NUTS 4</a></li>
-                  </ul>
                   </li>
                   <li><a href="#">Census 2011</a></li>
-                    <ul id="drop">
-                      <li><a href="#">Sex, Age and marital status</a></li>
+                    <ul >
+                      <li>
+                          <a href="#">Sex, Age and marital status</a>
+                          <ul class="extendedMenu">
+                              <li>
+                                  <a href="#" id="single" class="exMenuA">
+                                      <span>Single</span>
+                                      <div class="inputContainer">
+                                          <input class="menuInput" type="checkbox" id="singleMale" checked>
+                                          <label class="menuInputLabel" for="singleMale">Male</label>
+                                          <input class="menuInput" type="checkbox" id="singleFemale">
+                                          <label class="menuInputLabel" for="singleFemale">Female</label>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" id="married" class="exMenuA">
+                                      <span>Married</span>
+                                      <div class="inputContainer">
+                                          <input class="menuInput" type="checkbox" id="marriedMale" checked>
+                                          <label class="menuInputLabel" for="marriedMale">Male</label>
+                                          <input class="menuInput" type="checkbox" id="marriedFemale" checked>
+                                          <label class="menuInputLabel" for="marriedFemale">Female</label>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" id="separated" class="exMenuA">
+                                      <span>Separated</span>
+                                      <div class="inputContainer">
+                                          <input class="menuInput" type="checkbox" id="separatedMale" checked>
+                                          <label class="menuInputLabel" for="separatedMale">Male</label>
+                                          <input class="menuInput" type="checkbox" id="separatedFemale" checked>
+                                          <label class="menuInputLabel" for="separatedFemale">Female</label>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" id="divorced" class="exMenuA">
+                                      <span>Divorced</span>
+                                      <div class="inputContainer">
+                                          <input class="menuInput" type="checkbox" id="divorcedMale" checked>
+                                          <label class="menuInputLabel" for="divorcedMale">Male</label>
+                                          <input class="menuInput" type="checkbox" id="divorcedFemale" checked>
+                                          <label class="menuInputLabel" for="divorcedFemale">Female</label>
+                                      </div>
+                                  </a>
+                              </li>
+                              <li>
+                                  <a href="#" id="widowed" class="exMenuA">
+                                      <span>Widowed</span>
+                                      <div class="inputContainer">
+                                          <input class="menuInput" type="checkbox" id="widowedMale" checked>
+                                          <label class="menuInputLabel" for="widowedMale">Male</label>
+                                          <input class="menuInput" type="checkbox" id="widowedFemale" checked>
+                                          <label class="menuInputLabel" for="widowedFemale">Female</label>
+                                      </div>
+                                  </a>
+                              </li>
+                          </ul>
+                      </li>
                       <li><a href="#">Migration, ethnicity, religion and foreign languages</a></li>
                       <li><a href="#">Irish language</a></li>
                       <li><a href="#">Families</a></li>

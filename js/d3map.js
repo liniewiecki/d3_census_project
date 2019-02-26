@@ -1,20 +1,8 @@
-d3.select('#nuts1').on('click', function(){
-	init("C2016PopulationbySexAndMaritalStatus", "Male", "Single")
-})
-d3.select('#nuts2').on('click', function(){
-	init("C2016PopulationbySexAndMaritalStatus", "Female", "Single")
-})
-d3.select('#nuts3').on('click', function(){
-	init("C2016PopulationbySexAndMaritalStatus", "Total", "Married (incl. same sex civil partnership)")
-})
-d3.select('#nuts4').on('click', function(){
-	init("C2016PopulationbySexAndMaritalStatus", "Male", "Divorced")
-})
-var init = (categoryName, subCategory, subSubCategory, arrayLevCol=C.defaultArrayLevCol) => {
+
+var drawMap = (categoryName, subCategory, subSubCategory, colorFunction=defaultColorFunction) => {
 
 	var getArrayOfCategory = getArrayOfCategoryByName(categoryName),
-		stepColorFunction = createStepColorFunction(arrayLevCol),
-		colorArrayBuilder = createColorArrayBuilder(stepColorFunction),
+		colorArrayBuilder = createColorArrayBuilder(colorFunction),
 		d3Svg = d3.select("svg#svg2"),
 		colorMap =  createColorMap(d3Svg),
 		hoverTipString = subSubCategory + " " + subCategory.toLowerCase(),
@@ -51,6 +39,7 @@ var createColorMap = d3Svg => countryColorArray => {
 
 var createColorArrayBuilder = colorFunction => parameterArray =>  {
 	parameterArray = parameterArray || [];
+	colorFunction = colorFunction(parameterArray);
 	colorFunction = colorFunction || ( () => '#000000');
 
 	var countryColorArray = parameterArray.map(item => {
@@ -64,13 +53,30 @@ var createColorArrayBuilder = colorFunction => parameterArray =>  {
 	return countryColorArray;
 }
 
-var createStepColorFunction = arrayLevelAndColor => currentNumber  => {
+var createStepColorFunction = arrayLevelAndColor => () => currentNumber  => {
 		currentNumber = (currentNumber || 0)*100;
 	var levelFinder = createLevelFinder(currentNumber),
 		level = arrayLevelAndColor.find(levelFinder),
 		color = level.color || "#000000";
 
 	return color;
+}
+var createLineStepColorFunction = arrayLevelAndColor => paramArray => {
+	var numberParamArray = paramArray.map(item => item[1]),
+		maxParam = Math.max.apply(Math, numberParamArray),
+		minParam = Math.min.apply(Math, numberParamArray),
+		difMaxMinP = maxParam - minParam + 0.001;
+
+	return (currentNumber  => {
+		currentNumber = (currentNumber || 0);
+		currentNumber = (currentNumber - minParam) / (difMaxMinP),
+		currentNumber = currentNumber * 100;
+		var levelFinder = createLevelFinder(currentNumber),
+			level = arrayLevelAndColor.find(levelFinder),
+			color = level.color || "#000000";
+
+		return color;
+	})
 }
 
 var createLevelFinder = currentNumber => element => {
@@ -163,12 +169,61 @@ var addHoverEffects = d3Svg => stringTip => countyParamArray => {
 	return countyParamArray;
 }
 
+var getSubSubCategoryById = id => {
+	var result;
+	switch (id) {
+		case "single": result = "Single"; break;
+		case "married": result = "Married (incl. same sex civil partnership)"; break;
+		case "separated": result = "Separated"; break;
+		case "divorced": result = "Divorced"; break;
+		case "widowed":
+		default: result = "Widowed"; break;
+	}
+
+	return result
+}
+
+
+var menuClickHandler = () => {
+	var event = d3.event,
+		node = event.target,
+		anode = findParentNodeByClass(node, "exMenuA"),
+		anodeID = anode.id,
+		inputContainer = anode.lastElementChild,
+		inputMale = inputContainer.firstElementChild,
+		inputMaleChecked = inputMale.checked,
+		inputFemale = inputContainer.children[2],
+		inputFemaleChecked = inputFemale.checked,
+		categoryName = "C2016PopulationbySexAndMaritalStatus",
+		subCategory = inputMaleChecked && inputFemaleChecked ?
+			"Total" :
+			(inputMaleChecked ?	"Male" :
+					(inputFemaleChecked ? "Female" : "Total")
+			),
+		subSubCategory = getSubSubCategoryById(anodeID);
+
+
+	drawMap (categoryName, subCategory, subSubCategory)
+
+	event.stopPropagation();
+}
+
 //program pattern
 const compose = (...fns) => (arg) =>
 	fns.reduce((composed, f) => f(composed),arg)
 
+const findParentNodeByClass = (node, className) => {
+	if (node.nodeName == "html")
+		return
+
+	if (node.classList.contains(className)) {
+		return	node
+	} else {
+		return findParentNodeByClass(node.parentNode, className)
+	}
+}
 //constant
-var C = {
+const C = {
 	defaultArrayLevCol: [
 		{level: 20, color: '#ff0000'},
 		{level: 30, color: '#ff4700'},
@@ -184,4 +239,11 @@ var C = {
 	tooltipContainerId: "tooltip-container"
 }
 
-init("C2016PopulationbySexAndMaritalStatus", "Male", "Single")
+const defaultColorFunction = createLineStepColorFunction(C.defaultArrayLevCol)
+
+d3.select('#single').on('click', menuClickHandler)
+d3.select('#married').on('click', menuClickHandler)
+d3.select('#separated').on('click', menuClickHandler)
+d3.select('#divorced').on('click', menuClickHandler)
+d3.select('#widowed').on('click', menuClickHandler)
+drawMap ("C2016PopulationbySexAndMaritalStatus", "Male", "Single")
