@@ -1,0 +1,9 @@
+Today I made a legend: legendContainer.html(htmlString);
+    function:
+    - createStepColorLegendHtml
+    - drawLineStepColorLegend
+
+
+
+
+

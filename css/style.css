@@ -47,6 +47,29 @@ body{
   background: #171717 !important;
 }
 
+/* legend  */
+#mapLegend {
+  position: relative;
+}
+#mapLegend .stepLegendContainer {
+  position: absolute;
+  /*right: 0;*/
+  width: 100px;
+}
+#mapLegend .color{
+  text-align: center;
+}
+
+/*  pyramid svg */
+#pyramidSvgCont {
+  position: relative;
+}
+#pyramidSvgCont svg {
+  position: absolute;
+  right: 0px;
+  height: 500px;
+  width: 160px;
+}
 /* svg#Ireland {
   width: 500px;
   height:300px;

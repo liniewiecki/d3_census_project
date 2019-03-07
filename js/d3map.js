@@ -3,15 +3,18 @@ var drawMap = (categoryName, subCategory, subSubCategory, colorFunction=defaultC
 
 	var getArrayOfCategory = getArrayOfCategoryByName(categoryName),
 		colorArrayBuilder = createColorArrayBuilder(colorFunction),
-		d3Svg = d3.select("svg#svg2"),
-		colorMap =  createColorMap(d3Svg),
+		d3SvgMap = d3.select("svg#svg2"),
+		colorMap =  createColorMap(d3SvgMap),
 		hoverTipString = subSubCategory + " " + subCategory.toLowerCase(),
-		hoverEffects = addHoverEffects(d3Svg)(hoverTipString),
+		hoverEffects = addHoverEffects(d3SvgMap)(hoverTipString),
 		currentRenderArray = getCurrentRenderArray(C.defaultMainCategory, subCategory, subSubCategory),
+		d3SvgPyramid = d3.select("svg#"+C.pyramidSvgId),
+		pyramidChart = drawPyramidChart(d3SvgPyramid),
 		handler = 	compose(
 						currentRenderArray,
 						hoverEffects,
 						colorArrayBuilder,
+						pyramidChart,
 						colorMap
 					)
 
@@ -37,15 +40,69 @@ var createColorMap = d3Svg => countryColorArray => {
 	return countryColorArray
 }
 
+var drawPyramidChart = d3Svg => {
+	var height = 500,
+		width = 160,
+		pyramid = d3.pyramid()
+					.size([width, height])
+					.value(function (d) {
+						return d.parameter;
+					}),
+		line = d3.line().x(function (d, i) {
+							return d.x;
+						})
+						.y(function (d, i) {
+							return d.y;
+						});
+
+	return (countryColorArray => {
+		d3Svg.selectAll("g").remove()
+
+		var g = d3Svg.append("g")
+			.selectAll(".pyramid-group")
+			.data(pyramid(countryColorArray))
+			.enter().append("g")
+			.attr("class", "pyramid-group");
+
+		g.append("path")
+			.attr("d", function (d) {
+				return line(d.coordinates);
+			})
+			.style("fill", function (d) {
+				return d.color;
+			});
+
+		g.append("text")
+			.text(function (d) {
+				return d.id;
+			})
+			.style("text-anchor", "middle")
+			.attr("y", function (d, i) {
+				if (d.coordinates.length === 4) {
+					return (((d.coordinates[0].y - d.coordinates[1].y) / 2) + d.coordinates[1].y) + 5;
+				} else {
+					return (d.coordinates[0].y + d.coordinates[1].y) / 2 + 10;
+				}
+			})
+			.attr("x", function (d, i) {
+				return width / 2;
+			})
+		;
+
+		return countryColorArray
+	})
+}
+
 var createColorArrayBuilder = colorFunction => parameterArray =>  {
 	parameterArray = parameterArray || [];
 	colorFunction = colorFunction(parameterArray);
 	colorFunction = colorFunction || ( () => '#000000');
 
 	var countryColorArray = parameterArray.map(item => {
-		var color = colorFunction(item[1]),
+		var parameter = item[1],
+			color = colorFunction(parameter),
 			id = item[0],
-			result = {id, color};
+			result = {id, color, parameter};
 
 		return result;
 	})
@@ -62,17 +119,13 @@ var createStepColorFunction = arrayLevelAndColor => () => currentNumber  => {
 	return color;
 }
 var createLineStepColorFunction = arrayLevelAndColor => paramArray => {
-	var numberParamArray = paramArray.map(item => item[1]),
-		maxParam = Math.max.apply(Math, numberParamArray),
-		minParam = Math.min.apply(Math, numberParamArray),
-		difMaxMinP = maxParam - minParam + 0.001;
+	var newArLvlClr = drawLineStepColorLegend(arrayLevelAndColor)(paramArray);
 
 	return (currentNumber  => {
 		currentNumber = (currentNumber || 0);
-		currentNumber = (currentNumber - minParam) / (difMaxMinP),
 		currentNumber = currentNumber * 100;
 		var levelFinder = createLevelFinder(currentNumber),
-			level = arrayLevelAndColor.find(levelFinder),
+			level = newArLvlClr.find(levelFinder),
 			color = level.color || "#000000";
 
 		return color;
@@ -82,6 +135,49 @@ var createLineStepColorFunction = arrayLevelAndColor => paramArray => {
 var createLevelFinder = currentNumber => element => {
 	return element.level >= currentNumber
 }
+
+var drawLineStepColorLegend = arrayLevelAndColor => paramArray => {
+	arrayLevelAndColor = arrayLevelAndColor || [];
+	paramArray = paramArray || [];
+
+	var legendContainer = d3.select("#mapLegend"),
+		numberParamArray = paramArray.map(item => item[1]),
+		maxParam = Math.max.apply(Math, numberParamArray)*100,
+		minParam = Math.min.apply(Math, numberParamArray)*100,
+		difMaxMinP = maxParam - minParam + 0.001,
+		resultArray = arrayLevelAndColor.map((item, index, array) => {
+				var level = Math.round(minParam + item.level*(difMaxMinP) / 100),
+					color = item.color;
+				return {level, color}
+		}),
+		html = createStepColorLegendHtml(resultArray);
+
+	legendContainer.html(html);
+	return resultArray
+}
+
+var createStepColorLegendHtml = (arrayLevelAndColor=[]) => {
+	var html = '',
+		level = 0;
+
+	html += '<div class="stepLegendContainer">';
+	arrayLevelAndColor.forEach( item => {
+		if (item.level <= 0 || level === item.level)
+			return;
+
+		var string = level + "-" + item.level + "%";
+			level = item.level;
+
+		html += '<div class="color" style="background: ' + item.color + ';" >';
+		html += string;
+		html += '</div>';
+	})
+	html += '</div>';
+
+	return html;
+}
+
+
 
 // subCategory - total, male, ..
 // subSubCategory - total, single, ..
@@ -144,7 +240,7 @@ var addHoverEffects = d3Svg => stringTip => countyParamArray => {
 					html = '';
 
 				html += '<span class="title">';
-				html += stringTip;
+				html += item[0] + "<br>" + stringTip;
 				html += '</span>';
 				html += '<span class="value">';
 				html += value;
@@ -182,7 +278,6 @@ var getSubSubCategoryById = id => {
 
 	return result
 }
-
 
 var menuClickHandler = () => {
 	var event = d3.event,
@@ -236,7 +331,8 @@ const C = {
 		{level: 100, color: '#0cfd00'},
 	],
 	defaultMainCategory: "Total",
-	tooltipContainerId: "tooltip-container"
+	tooltipContainerId: "tooltip-container",
+	pyramidSvgId: "pyramidSvg",
 }
 
 const defaultColorFunction = createLineStepColorFunction(C.defaultArrayLevCol)

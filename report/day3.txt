@@ -1,0 +1,8 @@
+Today I made a menu: layout, subscription to events and their binding to the functions of changing the color of the map:
+    - menuClickHandler
+    - new color function: drawLineStepColorLegend
+
+
+
+
+
